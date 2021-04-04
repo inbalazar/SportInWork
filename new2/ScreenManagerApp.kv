@@ -1,0 +1,282 @@
+MyScreenManager:
+    FirstScreen:
+    SecondScreen:
+    ThirdScreen:
+
+<MenuButton@ButtonBehavior+Label>:
+    canvas.before:
+        Color:
+            rgba: 0.1, 0.5, 0.7, 1
+        Ellipse:
+            pos: self.pos
+            size: self.height, self.height
+        Ellipse:
+            pos: self.x + self.width - self.height, self.y
+            size: self.height, self.height
+        Rectangle:
+            pos: self.x + self.height / 2, self.y
+            size: self.width - self.height, self.height
+
+<FirstScreen>:
+    name:'first'
+    FloatLayout:
+        Image:
+            source: 'logo.png'
+            pos_hint: {"x":0, "bottom":1}
+
+        Button:
+            background_normal: 'SettingButtonFinal.png'
+            pos_hint: {"x":.9, "top":1}
+            size_hint: 0.1, 0.1
+            on_release: root.manager.current = 'second'
+
+        MenuButton:
+            text: 'Start Training'
+            height: dp(50)
+            size_hint_y: None
+            background_image: ''
+            on_release: root.manager.current = 'Third'
+
+
+<SecondScreen>:
+    name:'second'
+    FloatLayout:
+        Button:
+            background_normal: 'BackButton.png'
+            background_color: 1, 1, 1, 1
+            pos_hint: {"x":.0, "top":1}
+            size_hint: .1, .1
+            on_release: root.manager.current = 'first'
+
+    GridLayout:
+        cols: 2
+        rows: 3
+
+        Label:
+            text: "Select working days"
+
+        GridLayout:
+            cols: 2
+            rows: 7
+
+
+            CheckBox:
+                id : chk
+                text: "Sunday"
+                on_active:
+                active: True
+
+            Label:
+                text: 'Sunday'
+                text_size: self.size
+                valign: 'middle'
+
+
+            CheckBox
+                id : chk
+                text: "Monday"
+                on_active:
+                active: True
+
+            Label:
+                text: 'Monday'
+                text_size: self.size
+                valign: 'middle'
+
+
+            CheckBox:
+                id : chk
+                text: "Tuesday"
+                on_active:
+                active: True
+
+            Label:
+                text: 'Tuesday'
+                text_size: self.size
+                valign: 'middle'
+
+
+            CheckBox:
+                id : chk
+                text: "Wednesday"
+                on_active:
+                active: True
+
+            Label:
+                text: 'Wednesday'
+                text_size: self.size
+                valign: 'middle'
+
+
+            CheckBox:
+                id : chk
+                text: "Thursday"
+                on_active:
+                active: True
+
+            Label:
+                text: 'Thursday'
+                text_size: self.size
+                valign: 'middle'
+
+
+            CheckBox:
+                id : chk
+                text: "Friday"
+                on_active:
+
+            Label:
+                text: 'Friday'
+                text_size: self.size
+                valign: 'middle'
+
+
+            CheckBox:
+                id : chk
+                text: "Saturday"
+                on_active:
+
+            Label:
+                text: 'Saturday'
+                text_size: self.size
+                valign: 'middle'
+
+
+        Label:
+            text: "Working hours range per day"
+        DropDown:
+            id: dropdown
+            size_hint_y: None
+            on_select: app.root.ids.btn.text = "{}".format(args[1])
+            Button:
+                text: 'btn 1'
+
+                size_hint_y: None
+                height: 44
+
+            Button:
+                text: 'btn 2'
+
+                size_hint_y: None
+                height: 44
+
+            Button:
+                text: 'btn 3'
+
+                size_hint_y: None
+                height: 44
+
+
+        Label:
+            text: "How many times to notify?"
+
+        GridLayout:
+            cols: 2
+
+            CheckBox:
+                group: 'check'
+                id : chk
+                text: "4 times a day"
+                on_active:
+                size_hint_x: None
+                active: True
+            Label:
+                text: '4 times a day'
+                text_size: self.size
+                valign: 'middle'
+                size_hint_x: None
+
+            CheckBox:
+                group: 'check'
+                id : chk
+                text: "3 times a day"
+                on_active:
+                size_hint_x: None
+            Label:
+                text: '3 times a day'
+                text_size: self.size
+                valign: 'middle'
+                size_hint_x: None
+
+            CheckBox:
+                group: 'check'
+                id : chk
+                text: "twice a day"
+                on_active:
+                size_hint_x: None
+            Label:
+                text: 'twice a day'
+                text_size: self.size
+                valign: 'middle'
+                size_hint_x: None
+
+            CheckBox:
+                group: 'check'
+                id : chk
+                text: "once a day"
+                on_active:
+                size_hint_x: None
+            Label:
+                text: 'once a day'
+                text_size: self.size
+                valign: 'middle'
+                size_hint_x: None
+
+<ThirdScreen>:
+    name:'Third'
+    FloatLayout:
+        Button:
+            background_normal: 'BackButton.png'
+            background_color: 1, 1, 1, 1
+            pos_hint: {"x":.0, "top":1}
+            size_hint: .1, .1
+            on_release: root.manager.current = 'first'
+    GridLayout:
+        cols: 2
+        rows: 5
+
+        Label:
+            text: "Training 1"
+        Image:
+            source: 'logo.png'
+
+        Label:
+            text: "Training 2"
+        Image:
+            source: 'logo.png'
+
+        Label:
+            text: "Training 3"
+        Image:
+            source: 'logo.png'
+
+        Label:
+            text: "Training 4"
+        Image:
+            source: 'logo.png'
+
+        Label:
+            text: "Training 5"
+        Image:
+            source: 'logo.png'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
